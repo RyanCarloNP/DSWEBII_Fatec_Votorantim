@@ -1,0 +1,27 @@
+.titulosite {
+  font-size: 40px;
+  font-weight: bold;
+  height: 112px;
+  border-bottom: 2px dashed rgb(0, 0, 0);
+  padding: 32px;
+}
+
+.menuusuario {
+  position: absolute;
+  right: 32px;
+  top: 70px;
+  z-index: 1;
+}
+
+.itemclicavel {
+  font-weight: bold;
+}
+
+.personcircle {
+  cursor: pointer;
+}
+
+.row {
+  margin-right: 1px;
+  margin-left: 1px;
+}
