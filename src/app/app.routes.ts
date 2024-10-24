@@ -4,6 +4,6 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 
 export const routes: Routes = [
   {
-    path: 'course-details', component: CourseDetailsComponent
+    path: "course-details", component: CourseDetailsComponent,
   }
 ];
