@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -10,7 +10,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './course.component.html',
   styleUrl: './course.component.css'
 })
-export class CourseComponent {
+export class CourseComponent implements OnInit {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  ngOnInit(): void {
+    this.updateCourses();
+  }
+  updateCourses(){
+    const id= Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.courses=this.courses.filter((x)=>x.idCategory==id);
+    this.router.navigate(['/course',{id: id}]);
+  }
   courses: Course[]=[
     {id: 1, idCategory: 1, title: 'TI - Vivendo em Java', description: 'Primeiros conceitos de Java orientado a objeto', cost: 'R$29,99', image: 'https://miro.medium.com/v2/resize:fit:1200/1*GCu4cNWIU1ElDbY7d4ycZw.png', duration: '40 horas'},
     {id: 2, idCategory: 1, title: 'TI - Respirando Java', description: 'Java avançado orientado a objeto', cost: 'R$39,99', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVFTdcW2W9NofAWpuWmQZOjY8RTyOLJ6_9AQ&s', duration: '48 horas'},

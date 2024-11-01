@@ -1,7 +1,7 @@
 <div class="background">
   <ul class="list-group list-group-horizontal">
     <li class="card_category" *ngFor="let category of categories">
-      <a routerLink="/course">
+      <a routerLink="/course/{{category.id}}">
         <div class="card_img">
           <img src="{{category.image}}"alt="user-image">
         </div>
